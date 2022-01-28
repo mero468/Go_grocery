@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Go_grocery.Models.Orderdet>
+@{
+    ViewData["Title"] = "Products";
+        Layout = null;
+
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Go_grocery</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<h1> Courier's Orders</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.couriername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.productname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customername)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ToList() ){
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.couriername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customername)
+            </td>
+           <td>  <a class ="btn btn-primary" asp-action="Deliver" asp-route-id="@item.Id">Mark As Delivered</a> </td>
+        </tr>
+}
+    </tbody>
+</table>
+<p>
+    <a class ="btn btn-danger" asp-controller="Home" asp-action="Index">Logout </a>
+</p>

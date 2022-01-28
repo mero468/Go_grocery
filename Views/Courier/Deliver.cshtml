@@ -1,0 +1,25 @@
+﻿@model Go_grocery.Models.Order
+
+@{
+    ViewData["Title"] = "Delivery";
+        Layout = null;
+
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Go_grocery</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<h1>Confirm Delivery</h1>
+
+<h3>Are you sure you delivered this product?</h3>
+<div>
+    
+    <form asp-action="Deliver">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Orders" asp-route-id="@Model.CourierId">Back to List</a>
+    </form>
+</div>
